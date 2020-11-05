@@ -24,7 +24,7 @@ public class GameView extends SurfaceView implements Runnable {
 
         this.panda = new Panda(getResources(), this.screenX, this.screenY);
         this.panda.x = this.screenX / 2 - 180;
-        this.panda.y = this.screenY / 4;
+        this.panda.y = this.screenY / 5;
 
         this.paint = new Paint();
     }
@@ -40,8 +40,7 @@ public class GameView extends SurfaceView implements Runnable {
     }
 
     public void update() {
-        Log.d("test", "zde");
-
+        this.panda.update();
     }
 
     public void draw() {
@@ -54,7 +53,7 @@ public class GameView extends SurfaceView implements Runnable {
 
     public void sleep() {
         try {
-            Thread.sleep(17);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

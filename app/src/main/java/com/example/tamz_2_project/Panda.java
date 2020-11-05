@@ -7,10 +7,10 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 
 public class Panda {
-    public static int MAX_HEALTH = 100;
-    public static int MAX_FUN = 100;
-    public static int MAX_HAPPINESS = 100;
-    public static int MAX_LOVE = 100;
+    public static float MAX_HEALTH = 100;
+    public static float MAX_FUN = 100;
+    public static float MAX_HAPPINESS = 100;
+    public static float MAX_LOVE = 100;
     
     public int x, y;
     private Health health;
@@ -34,5 +34,12 @@ public class Panda {
         this.love.draw(canvas);
         this.fun.draw(canvas);
         this.happiness.draw(canvas);
+    }
+
+    public void update() {
+        this.health.update();
+        this.love.update();
+        this.happiness.update();
+        this.fun.update();
     }
 }

@@ -7,4 +7,5 @@ public interface Statistics {
     int margin = 5;
     int height = 70;
     void draw(Canvas canvas);
+    void update();
 }

@@ -6,11 +6,13 @@ import android.graphics.Paint;
 
 public class Happiness implements Statistics {
     private int width, x, y;
+    private float value;
 
     Happiness(int screenX, int screenY) {
         this.width = (int) (screenX * 0.6);
         this.x = (int) (screenX * 0.25);
-        this.y = (int) (screenY * 0.85);
+        this.y = (int) (screenY * 0.7);
+        this.value = Panda.MAX_HAPPINESS;
     }
 
     @Override
@@ -24,14 +26,23 @@ public class Happiness implements Statistics {
         canvas.drawRect(this.x, this.y - this.height, this.x + this.width, this.y, paint);
 
         // Health
-        int healthWidth = this.width - 2 * this.margin;
+        float healthWidth =((this.width - 2 * this.margin) * (this.value / 100));
         int healthHeight = this.height - 2 * this.margin;
         int healthLeft = this.x + this.margin;
-        int healthRight = healthLeft + healthWidth;
+        float healthRight = healthLeft + healthWidth;
         int healthBottom = this.y - this.margin;
         int healthTop = healthBottom - healthHeight;
 
         paint.setColor(Color.GREEN);
         canvas.drawRect(healthLeft, healthTop, healthRight, healthBottom, paint);
+    }
+
+    @Override
+    public void update() {
+        if(this.value == 0) {
+            this.value = 0;
+        } else {
+            this.value -= 0.1;
+        }
     }
 }

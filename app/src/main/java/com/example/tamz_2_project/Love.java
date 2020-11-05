@@ -9,7 +9,7 @@ public class Love implements Statistics {
 
     Love(int screenX, int screenY) {
         this.width = (int) (screenX * 0.6);
-        this.x = screenX / 5;
+        this.x = (int) (screenX * 0.25);
         this.y = (int) (screenY * 0.75);
     }
 
@@ -18,6 +18,8 @@ public class Love implements Statistics {
         Paint paint = new Paint();
         paint.setColor(Color.WHITE);
 
+        paint.setTextSize(40);
+        canvas.drawText("Love: ", this.x - 110,(this.y - this.height/2) + 10, paint);
         // Border
         canvas.drawRect(this.x, this.y - this.height, this.x + this.width, this.y, paint);
 

@@ -12,7 +12,7 @@ public class Health implements Statistics {
         this.width = (int) (screenX * 0.6);
         this.x = (int) (screenX * 0.25);
         this.y = (int) (screenY * 0.55);
-        this.value = Panda.MAX_HEALTH;
+        this.value = Pandagotchi.MAX_HEALTH;
     }
 
     @Override

@@ -6,7 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
-public class Panda {
+public class Pandagotchi {
     public static float MAX_HEALTH = 100;
     public static float MAX_FUN = 100;
     public static float MAX_HAPPINESS = 100;
@@ -19,7 +19,7 @@ public class Panda {
     private Love love;
     public Bitmap logo;
 
-    Panda(Resources res, int screenX, int screenY) {
+    Pandagotchi(Resources res, int screenX, int screenY) {
         this.logo = BitmapFactory.decodeResource(res, R.drawable.panda);
         this.logo = Bitmap.createScaledBitmap(logo, 400, 400, false);
         this.health = new Health(screenX, screenY);

@@ -3,7 +3,6 @@ package com.example.tamz_2_project;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.util.Log;
 
 public class Fun implements Statistics {
     private int width, x, y;
@@ -13,7 +12,7 @@ public class Fun implements Statistics {
         this.width = (int) (screenX * 0.6);
         this.x = (int) (screenX * 0.25);
         this.y = (int) (screenY * 0.65);
-        this.value = Panda.MAX_FUN;
+        this.value = Pandagotchi.MAX_FUN;
     }
 
     @Override

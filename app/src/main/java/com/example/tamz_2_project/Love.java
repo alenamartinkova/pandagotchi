@@ -12,7 +12,7 @@ public class Love implements Statistics {
         this.width = (int) (screenX * 0.6);
         this.x = (int) (screenX * 0.25);
         this.y = (int) (screenY * 0.6);
-        this.value = Panda.MAX_LOVE;
+        this.value = Pandagotchi.MAX_LOVE;
     }
 
     @Override

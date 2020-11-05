@@ -3,7 +3,7 @@ package com.example.tamz_2_project;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.util.Log;
+import android.util.AttributeSet;
 import android.view.SurfaceView;
 
 public class GameView extends SurfaceView implements Runnable {
@@ -12,21 +12,34 @@ public class GameView extends SurfaceView implements Runnable {
     private int screenX, screenY;
     private float screenRatioX, screenRatioY;
     private Paint paint;
-    private Panda panda;
+    private Pandagotchi pandagotchi;
 
     public GameView(Context context, int screenX, int screenY) {
         super(context);
+
         this.screenX = screenX;
         this.screenY = screenY;
 
         this.screenRatioX = 1920f / screenX;
         this.screenRatioY = 1920f / screenY;
 
-        this.panda = new Panda(getResources(), this.screenX, this.screenY);
-        this.panda.x = this.screenX / 2 - 180;
-        this.panda.y = this.screenY / 5;
+        this.pandagotchi = new Pandagotchi(getResources(), this.screenX, this.screenY);
+        this.pandagotchi.x = this.screenX / 2 - 180;
+        this.pandagotchi.y = this.screenY / 5;
 
         this.paint = new Paint();
+    }
+
+    public GameView(Context context) {
+        super(context);
+    }
+
+    public GameView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    public GameView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
     }
 
     @Override
@@ -40,13 +53,14 @@ public class GameView extends SurfaceView implements Runnable {
     }
 
     public void update() {
-        this.panda.update();
+        this.pandagotchi.update();
     }
 
     public void draw() {
         if(getHolder().getSurface().isValid()) {
             Canvas canvas = getHolder().lockCanvas();
-            this.panda.draw(canvas, paint);
+
+            this.pandagotchi.draw(canvas, paint);
             getHolder().unlockCanvasAndPost(canvas);
         }
     }

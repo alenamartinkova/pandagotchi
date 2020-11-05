@@ -7,8 +7,10 @@ import android.graphics.Point;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,5 +42,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         this.gameView.resume();
+    }
+
+    public void showGames(View view) {
+        Toast.makeText(getApplicationContext(), "TEST", Toast.LENGTH_LONG).show();
     }
 }

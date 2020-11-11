@@ -9,7 +9,7 @@ public class FlightBackground {
     Bitmap background;
 
     FlightBackground(int screenX, int screenY, Resources res) {
-        this.background = BitmapFactory.decodeResource(res, R.drawable.background);
+        this.background = BitmapFactory.decodeResource(res, R.drawable.flightbackground);
         this.background = Bitmap.createScaledBitmap(this.background, screenX, screenY, false);
     }
 }

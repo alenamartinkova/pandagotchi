@@ -22,7 +22,7 @@ public class FlightGameActivity extends AppCompatActivity {
         setContentView(this.flightGameView);
     }
 
-   /* @Override
+   @Override
     protected void onPause() {
         super.onPause();
         try {
@@ -36,5 +36,5 @@ public class FlightGameActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         this.flightGameView.resume();
-    }*/
+    }
 }

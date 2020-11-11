@@ -3,6 +3,7 @@ package com.example.tamz_2_project;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.util.AttributeSet;
 import android.view.SurfaceView;
 
 public class FlightGameView extends SurfaceView implements Runnable {
@@ -27,6 +28,18 @@ public class FlightGameView extends SurfaceView implements Runnable {
         this.screenX = screenX;
         this.screenY = screenY;
         this.paint = new Paint();
+    }
+
+    public FlightGameView(Context context) {
+        super(context);
+    }
+
+    public FlightGameView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    public FlightGameView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
     }
 
     @Override

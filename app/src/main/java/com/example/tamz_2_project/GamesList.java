@@ -3,11 +3,13 @@ package com.example.tamz_2_project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 public class GamesList extends AppCompatActivity {
     Intent myIntent;
@@ -16,6 +18,9 @@ public class GamesList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_games_list);
+        TextView highscore = findViewById(R.id.highScore);
+        SharedPreferences prefs = getSharedPreferences("game", MODE_PRIVATE);
+        highscore.setText("Highscore: " + prefs.getInt("highscore", 0));
     }
 
     @Override

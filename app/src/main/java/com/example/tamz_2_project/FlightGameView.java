@@ -1,9 +1,16 @@
 package com.example.tamz_2_project;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.media.AudioAttributes;
+import android.media.AudioManager;
+import android.media.SoundPool;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.SurfaceView;
@@ -15,7 +22,7 @@ import java.util.Random;
 public class FlightGameView extends SurfaceView implements Runnable {
     private Thread thread;
     private boolean isPlaying, isGameOver = false;
-    private int screenX, screenY;
+    private int screenX, screenY, score = 0;
     public static float screenRatioX, screenRatioY;
     private FlightBackground firstBg, secondBg;
     private List<Bullet> bullets;
@@ -24,9 +31,31 @@ public class FlightGameView extends SurfaceView implements Runnable {
     private Paint paint;
     private Flight flight;
     private Random random;
+    public SharedPreferences prefs;
+    private FlightGameActivity activity;
+    private SoundPool soundPool;
+    private int sound;
 
-    public FlightGameView(Context context, int screenX, int screenY) {
-        super(context);
+    public FlightGameView(FlightGameActivity activity, int screenX, int screenY) {
+        super(activity);
+
+        this.activity = activity;
+
+        this.prefs = activity.getSharedPreferences("game", Context.MODE_PRIVATE);
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            AudioAttributes audioAttributes = new AudioAttributes.Builder()
+                    .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                    .setUsage(AudioAttributes.USAGE_GAME)
+                    .build();
+            this.soundPool = new SoundPool.Builder()
+                    .setAudioAttributes(audioAttributes)
+                    .build();
+        } else {
+            this.soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
+        }
+
+        this.sound = this.soundPool.load(this.activity, R.raw.shoot, 1);
 
         this.screenRatioX = 1920f / screenX;
         this.screenRatioY = 1920f / screenY;
@@ -41,9 +70,11 @@ public class FlightGameView extends SurfaceView implements Runnable {
         this.paint = new Paint();
 
         this.bullets = new ArrayList<>();
-        this.enemies = new Enemy[4];
+        this.enemies = new Enemy[3];
         createEnemies();
 
+        this.paint.setTextSize(128);
+        this.paint.setColor(Color.WHITE);
         this.random = new Random();
     }
 
@@ -63,7 +94,11 @@ public class FlightGameView extends SurfaceView implements Runnable {
     public void run() {
         while(this.isPlaying) {
             update();
-            draw();
+            try {
+                draw();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             sleep();
         }
     }
@@ -111,6 +146,7 @@ public class FlightGameView extends SurfaceView implements Runnable {
                     e.x = -500;
                     b.x = this.screenX + 500;
                     e.wasShot = true;
+                    this.score += 10;
                 }
             }
         }
@@ -126,21 +162,25 @@ public class FlightGameView extends SurfaceView implements Runnable {
         }
     }
 
-    private void draw() {
+    private void draw() throws InterruptedException {
         if(getHolder().getSurface().isValid()) {
             this.canvas = getHolder().lockCanvas();
             this.canvas.drawBitmap(this.firstBg.background, this.firstBg.x, this.firstBg.y, this.paint);
             this.canvas.drawBitmap(this.secondBg.background, this.secondBg.x, this.secondBg.y, this.paint);
 
+            for(Enemy e : this.enemies) {
+                this.canvas.drawBitmap(e.getEnemy(), e.x, e.y, this.paint);
+            }
+
+            this.canvas.drawText(this.score + "", this.screenX / 2f, 164, this.paint);
+
             if(this.isGameOver) {
                 this.isPlaying = false;
+                saveIfHighScore();
+                waitBeforeExit();
                 this.canvas.drawBitmap(this.flight.getDead(), this.flight.x, this.flight.y, this.paint);
                 getHolder().unlockCanvasAndPost(this.canvas);
                 return;
-            }
-
-            for(Enemy e : this.enemies) {
-                this.canvas.drawBitmap(e.getEnemy(), e.x, e.y, this.paint);
             }
 
             this.canvas.drawBitmap(this.flight.getFlight(), this.flight.x, this.flight.y, this.paint);
@@ -150,6 +190,20 @@ public class FlightGameView extends SurfaceView implements Runnable {
             }
 
             getHolder().unlockCanvasAndPost(this.canvas);
+        }
+    }
+
+    private void waitBeforeExit() throws InterruptedException {
+        Thread.sleep(3000);
+        this.activity.startActivity(new Intent(this.activity, GamesList.class));
+        this.activity.finish();
+    }
+
+    private void saveIfHighScore() {
+        if(this.prefs.getInt("highscore", 0) < this.score) {
+            SharedPreferences.Editor editor = this.prefs.edit();
+            editor.putInt("highscore", this.score);
+            editor.apply();
         }
     }
 
@@ -181,6 +235,7 @@ public class FlightGameView extends SurfaceView implements Runnable {
     }
 
     public void newBullet() {
+        this.soundPool.play(this.sound, 1 , 1, 0, 0, 1);
         Bullet bullet = new Bullet(getResources());
         bullet.x = this.flight.x + this.flight.width;
         bullet.y = this.flight.y + (this.flight.height / 2);

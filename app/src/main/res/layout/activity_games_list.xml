@@ -42,7 +42,7 @@
                 android:layout_width="150dp"
                 android:layout_height="60dp"
                 android:layout_centerInParent="true"
-                android:text="FruitPanda"
+                android:text="FlyingPanda"
                 android:textAllCaps="false"
                 android:background="@android:color/holo_purple"/>
 

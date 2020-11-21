@@ -1,18 +1,20 @@
-package com.example.tamz_2_project;
+package com.example.tamz_2_project.FoodGame;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 
+import com.example.tamz_2_project.R;
+
 import java.util.Random;
 
-import static com.example.tamz_2_project.FoodGameView.health;
+import static com.example.tamz_2_project.FoodGame.FoodGameView.health;
 
 public class FoodGameBadFood {
     int x, y, width, height;
     Bitmap food;
-    public static int badFoodSpeed = 30;
+    private int badFoodSpeed;
     Random rand = new Random();
 
     public FoodGameBadFood(Resources res, int screenX) {
@@ -28,6 +30,7 @@ public class FoodGameBadFood {
 
         this.y = 0;
         this.x = this.rand.nextInt(screenX - this.width);
+        this.badFoodSpeed = getRandom(30, 45);
     }
 
     public boolean update(int screenY, PandaFoodPlayer panda) {
@@ -47,5 +50,11 @@ public class FoodGameBadFood {
 
     Rect getRect() {
         return new Rect(this.x, this.y, this.x + this.width, this.y + this.height);
+    }
+
+    private int getRandom(int from, int to) {
+        if (from < to)
+            return from + new Random().nextInt(Math.abs(to - from));
+        return from - new Random().nextInt(Math.abs(to - from));
     }
 }

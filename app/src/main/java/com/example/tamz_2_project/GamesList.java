@@ -3,13 +3,15 @@ package com.example.tamz_2_project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
+
+import com.example.tamz_2_project.FlightGame.FlightGameActivity;
+import com.example.tamz_2_project.FoodGame.FoodGameActivity;
+import com.example.tamz_2_project.PandaBan.PandaBanActivity;
 
 public class GamesList extends AppCompatActivity {
     Intent myIntent;

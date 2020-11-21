@@ -1,9 +1,11 @@
-package com.example.tamz_2_project;
+package com.example.tamz_2_project.FlightGame;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
+
+import com.example.tamz_2_project.R;
 
 public class Bullet {
     int x, y, width, height;

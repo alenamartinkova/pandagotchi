@@ -1,4 +1,4 @@
-package com.example.tamz_2_project;
+package com.example.tamz_2_project.PandaBan;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
+import com.example.tamz_2_project.GamesList;
+import com.example.tamz_2_project.R;
 
 import java.io.IOException;
 import java.io.InputStream;

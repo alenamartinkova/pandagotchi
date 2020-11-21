@@ -6,6 +6,11 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
+import com.example.tamz_2_project.PandaStats.Fun;
+import com.example.tamz_2_project.PandaStats.Happiness;
+import com.example.tamz_2_project.PandaStats.Health;
+import com.example.tamz_2_project.PandaStats.Love;
+
 public class Pandagotchi {
     public static float MAX_HEALTH = 100;
     public static float MAX_FUN = 100;

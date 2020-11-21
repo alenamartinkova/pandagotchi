@@ -1,4 +1,4 @@
-package com.example.tamz_2_project;
+package com.example.tamz_2_project.FlightGame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,9 +7,9 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
-public class FoodGameActivity extends AppCompatActivity {
+public class FlightGameActivity extends AppCompatActivity {
 
-    private FoodGameView foodGameView;
+    private FlightGameView flightGameView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,15 +18,15 @@ public class FoodGameActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        this.foodGameView = new FoodGameView(getApplicationContext(), display.widthPixels, display.heightPixels);
-        setContentView(this.foodGameView);
+        this.flightGameView = new FlightGameView(this, display.widthPixels, display.heightPixels);
+        setContentView(this.flightGameView);
     }
 
-    @Override
+   @Override
     protected void onPause() {
         super.onPause();
         try {
-            this.foodGameView.pause();
+            this.flightGameView.pause();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -35,6 +35,6 @@ public class FoodGameActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        this.foodGameView.resume();
+        this.flightGameView.resume();
     }
 }

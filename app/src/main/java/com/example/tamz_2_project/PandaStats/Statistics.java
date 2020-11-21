@@ -1,4 +1,4 @@
-package com.example.tamz_2_project;
+package com.example.tamz_2_project.PandaStats;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;

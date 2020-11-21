@@ -1,9 +1,11 @@
-package com.example.tamz_2_project;
+package com.example.tamz_2_project.FoodGame;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
+
+import com.example.tamz_2_project.R;
 
 public class PandaFoodPlayer {
     int x, y, width, height;

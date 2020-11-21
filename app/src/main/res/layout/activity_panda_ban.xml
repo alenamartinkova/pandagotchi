@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PandaBanActivity">
+    tools:context=".PandaBan.PandaBanActivity">
 
-    <com.example.tamz_2_project.PandaBanView
+    <com.example.tamz_2_project.PandaBan.PandaBanView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/pandaBanView">
 
-    </com.example.tamz_2_project.PandaBanView>
+    </com.example.tamz_2_project.PandaBan.PandaBanView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

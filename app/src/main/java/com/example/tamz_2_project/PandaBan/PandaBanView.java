@@ -1,4 +1,4 @@
-package com.example.tamz_2_project;
+package com.example.tamz_2_project.PandaBan;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,9 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
+
+import com.example.tamz_2_project.MainActivity;
+import com.example.tamz_2_project.R;
 
 public class PandaBanView extends View {
     Bitmap[] bmp;

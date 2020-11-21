@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FoodGameActivity">
+    tools:context=".FoodGame.FoodGameActivity">
 
-    <com.example.tamz_2_project.FoodGameView
+    <com.example.tamz_2_project.FoodGame.FoodGameView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/foodGameView">
-    </com.example.tamz_2_project.FoodGameView>
+    </com.example.tamz_2_project.FoodGame.FoodGameView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

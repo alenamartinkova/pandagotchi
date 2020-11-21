@@ -1,8 +1,10 @@
-package com.example.tamz_2_project;
+package com.example.tamz_2_project.FlightGame;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+
+import com.example.tamz_2_project.R;
 
 public class FlightBackground {
     int x = 0, y;

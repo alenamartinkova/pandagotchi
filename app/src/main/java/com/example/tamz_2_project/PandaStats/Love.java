@@ -1,8 +1,11 @@
-package com.example.tamz_2_project;
+package com.example.tamz_2_project.PandaStats;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+
+import com.example.tamz_2_project.PandaStats.Statistics;
+import com.example.tamz_2_project.Pandagotchi;
 
 public class Love implements Statistics {
     private int width, x, y;

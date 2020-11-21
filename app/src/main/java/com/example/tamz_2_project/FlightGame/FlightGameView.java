@@ -1,4 +1,4 @@
-package com.example.tamz_2_project;
+package com.example.tamz_2_project.FlightGame;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +14,9 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.SurfaceView;
+
+import com.example.tamz_2_project.GamesList;
+import com.example.tamz_2_project.R;
 
 import java.util.ArrayList;
 import java.util.List;

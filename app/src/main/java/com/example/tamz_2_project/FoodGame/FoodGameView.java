@@ -1,4 +1,4 @@
-package com.example.tamz_2_project;
+package com.example.tamz_2_project.FoodGame;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -18,7 +18,7 @@ public class FoodGameView extends SurfaceView implements Runnable {
     private FoodGameFood food;
     private FoodGameBadFood badFood;
     private boolean isGameOver = false;
-    public static int health = 3;
+    public static int health = 5;
 
     public FoodGameView(Context context) {
         super(context);
@@ -80,7 +80,6 @@ public class FoodGameView extends SurfaceView implements Runnable {
         if(this.isGameOver && health == 0) {
             return;
         } else if (this.isGameOver && health > 0) {
-            this.badFood.badFoodSpeed++;
             this.badFood = new FoodGameBadFood(getResources(), this.screenX);
         }
 
@@ -91,7 +90,7 @@ public class FoodGameView extends SurfaceView implements Runnable {
         if(this.isGameOver && health == 0) {
             return;
         } else if (this.isGameOver && health > 0) {
-            this.food.foodSpeed += 3;
+            this.food.foodSpeed += 5;
             this.food = new FoodGameFood(getResources(), this.screenX);
         }
 

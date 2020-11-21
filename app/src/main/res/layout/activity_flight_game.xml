@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FlightGameActivity">
+    tools:context=".FlightGame.FlightGameActivity">
 
-    <com.example.tamz_2_project.FlightGameView
+    <com.example.tamz_2_project.FlightGame.FlightGameView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/flightGameView">
-    </com.example.tamz_2_project.FlightGameView>
+    </com.example.tamz_2_project.FlightGame.FlightGameView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

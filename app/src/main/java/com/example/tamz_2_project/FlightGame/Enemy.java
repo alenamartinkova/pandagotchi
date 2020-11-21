@@ -1,9 +1,12 @@
-package com.example.tamz_2_project;
+package com.example.tamz_2_project.FlightGame;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
+
+import com.example.tamz_2_project.FlightGame.Flight;
+import com.example.tamz_2_project.R;
 
 import java.util.Random;
 

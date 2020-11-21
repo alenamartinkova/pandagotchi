@@ -1,18 +1,21 @@
-package com.example.tamz_2_project;
+package com.example.tamz_2_project.PandaStats;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
-public class Fun implements Statistics {
+import com.example.tamz_2_project.PandaStats.Statistics;
+import com.example.tamz_2_project.Pandagotchi;
+
+public class Happiness implements Statistics {
     private int width, x, y;
     private float value;
 
-    Fun(int screenX, int screenY) {
+    Happiness(int screenX, int screenY) {
         this.width = (int) (screenX * 0.6);
         this.x = (int) (screenX * 0.25);
-        this.y = (int) (screenY * 0.75);
-        this.value = Pandagotchi.MAX_FUN;
+        this.y = (int) (screenY * 0.85);
+        this.value = Pandagotchi.MAX_HAPPINESS;
     }
 
     @Override
@@ -21,7 +24,7 @@ public class Fun implements Statistics {
         paint.setColor(Color.WHITE);
 
         paint.setTextSize(40);
-        canvas.drawText("Fun: ", this.x - 100,(this.y - this.height/2) + 10, paint);
+        canvas.drawText("Happiness: ", this.x - 220,(this.y - this.height/2) + 10, paint);
         // Border
         canvas.drawRect(this.x, this.y - this.height, this.x + this.width, this.y, paint);
 

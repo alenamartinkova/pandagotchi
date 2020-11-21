@@ -5,8 +5,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 
-import static com.example.tamz_2_project.FlightGameView.screenRatioX;
-import static com.example.tamz_2_project.FlightGameView.screenRatioY;
+import static com.example.tamz_2_project.MainActivity.screenRatioX;
+import static com.example.tamz_2_project.MainActivity.screenRatioY;
 
 public class Bullet {
     int x, y, width, height;

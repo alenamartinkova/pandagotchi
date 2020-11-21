@@ -19,11 +19,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static com.example.tamz_2_project.MainActivity.screenRatioX;
+
 public class FlightGameView extends SurfaceView implements Runnable {
     private Thread thread;
     private boolean isPlaying, isGameOver = false;
     private int screenX, screenY, score = 0;
-    public static float screenRatioX, screenRatioY;
     private FlightBackground firstBg, secondBg;
     private List<Bullet> bullets;
     private Enemy[] enemies;
@@ -56,9 +57,6 @@ public class FlightGameView extends SurfaceView implements Runnable {
         }
 
         this.sound = this.soundPool.load(this.activity, R.raw.shoot, 1);
-
-        this.screenRatioX = 1920f / screenX;
-        this.screenRatioY = 1920f / screenY;
 
         this.firstBg = new FlightBackground(screenX, screenY, getResources());
         this.secondBg = new FlightBackground(screenX, screenY, getResources());
@@ -119,8 +117,8 @@ public class FlightGameView extends SurfaceView implements Runnable {
     }
 
     private void update() {
-        this.firstBg.x -= 10 * this.screenRatioX;
-        this.secondBg.x -= 10 * this.screenRatioX;
+        this.firstBg.x -= 10 * screenRatioX;
+        this.secondBg.x -= 10 * screenRatioX;
 
         if(this.firstBg.x + this.firstBg.background.getWidth() < 0) {
             this.firstBg.x = this.screenX;
@@ -199,6 +197,7 @@ public class FlightGameView extends SurfaceView implements Runnable {
         this.activity.finish();
     }
 
+    // Not used so far
     private void saveIfHighScore() {
         if(this.prefs.getInt("highscore", 0) < this.score) {
             SharedPreferences.Editor editor = this.prefs.edit();

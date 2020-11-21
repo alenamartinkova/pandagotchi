@@ -7,28 +7,26 @@ import android.graphics.Rect;
 
 import java.util.Random;
 
-import static com.example.tamz_2_project.FlightGameView.screenRatioX;
-import static com.example.tamz_2_project.FlightGameView.screenRatioY;
+import static com.example.tamz_2_project.MainActivity.screenRatioX;
+import static com.example.tamz_2_project.MainActivity.screenRatioY;
 
 public class Enemy {
     int x = 0, y, width, height, enemyCounter = 1, speed = 20;
-    Bitmap enemyOne, enemyTwo, enemyThree;
+    Bitmap enemyOne, enemyTwo;
     boolean wasShot = true;
 
     Enemy(Resources res) {
         this.enemyOne = BitmapFactory.decodeResource(res, R.drawable.enemy1);
         this.enemyTwo = BitmapFactory.decodeResource(res, R.drawable.enemy2);
-        this.enemyThree = BitmapFactory.decodeResource(res, R.drawable.enemy3);
 
         this.width = this.enemyOne.getWidth();
         this.height = this.enemyOne.getHeight();
 
-        this.width = (int) ((this.width / 8) * screenRatioX);
-        this.height = (int) ((this.height / 8) * screenRatioY);
+        this.width = (int) ((this.width / 10) * screenRatioX);
+        this.height = (int) ((this.height / 10) * screenRatioY);
 
         this.enemyOne = Bitmap.createScaledBitmap(this.enemyOne, this.width, this.height, false);
         this.enemyTwo = Bitmap.createScaledBitmap(this.enemyTwo, this.width, this.height, false);
-        this.enemyThree = Bitmap.createScaledBitmap(this.enemyThree, this.width, this.height, false);
 
         this.y = -this.height;
     }
@@ -37,12 +35,9 @@ public class Enemy {
         if(this.enemyCounter == 1) {
             this.enemyCounter++;
             return this.enemyOne;
-        } else if(this.enemyCounter == 2) {
-            this.enemyCounter++;
-            return this.enemyTwo;
         } else {
             this.enemyCounter = 1;
-            return this.enemyThree;
+            return this.enemyTwo;
         }
     }
 

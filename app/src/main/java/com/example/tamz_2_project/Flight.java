@@ -5,8 +5,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 
-import static com.example.tamz_2_project.FlightGameView.screenRatioX;
-import static com.example.tamz_2_project.FlightGameView.screenRatioY;
+import static com.example.tamz_2_project.MainActivity.screenRatioX;
+import static com.example.tamz_2_project.MainActivity.screenRatioY;
 
 public class Flight {
 
@@ -25,8 +25,8 @@ public class Flight {
         this.width = this.flightOne.getWidth();
         this.height = this.flightOne.getHeight();
 
-        this.width = (int) ((this.width / 4) * screenRatioX);
-        this.height = (int) ((this.height / 4) * screenRatioY);
+        this.width = (int) ((this.width / 6) * screenRatioX);
+        this.height = (int) ((this.height / 6) * screenRatioY);
 
         this.flightOne = Bitmap.createScaledBitmap(this.flightOne, this.width, this.height, false);
         this.flightTwo = Bitmap.createScaledBitmap(this.flightTwo, this.width, this.height, false);

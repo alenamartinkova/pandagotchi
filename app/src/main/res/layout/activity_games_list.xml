@@ -62,29 +62,15 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-        </RelativeLayout>
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/highScore"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="93dp"
-                android:layout_marginTop="37dp"
-                android:layout_marginEnd="99dp"
-                android:layout_marginBottom="295dp"
-                android:text="Highscore"
-                android:textColor="@color/colorAccent"
-                android:textSize="25dp"></TextView>
+            <Button
+                android:onClick="chooseGame"
+                android:id="@+id/button3"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
+                android:layout_centerInParent="true"
+                android:text="EatingPanda"
+                android:textAllCaps="false"
+                android:background="@android:color/holo_purple"/>
 
         </RelativeLayout>
 

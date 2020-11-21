@@ -18,9 +18,11 @@ public class GamesList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_games_list);
+        /*
         TextView highscore = findViewById(R.id.highScore);
         SharedPreferences prefs = getSharedPreferences("game", MODE_PRIVATE);
         highscore.setText("Highscore: " + prefs.getInt("highscore", 0));
+         */
     }
 
     @Override
@@ -51,6 +53,10 @@ public class GamesList extends AppCompatActivity {
                 break;
             case R.id.button2:
                 this.myIntent = new Intent(this, FlightGameActivity.class);
+                startActivity(this.myIntent);
+                break;
+            case R.id.button3:
+                this.myIntent = new Intent(this, FoodGameActivity.class);
                 startActivity(this.myIntent);
                 break;
         }

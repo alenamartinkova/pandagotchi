@@ -24,7 +24,7 @@ public class Pandagotchi {
     private Love love;
     public Bitmap logo;
 
-    Pandagotchi(Resources res, int screenX, int screenY) {
+    public Pandagotchi(Resources res, int screenX, int screenY) {
         this.logo = BitmapFactory.decodeResource(res, R.drawable.panda);
         this.logo = Bitmap.createScaledBitmap(logo, 400, 400, false);
         this.health = new Health(screenX, screenY);

@@ -4,14 +4,13 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
-import com.example.tamz_2_project.PandaStats.Statistics;
 import com.example.tamz_2_project.Pandagotchi;
 
 public class Health implements Statistics {
     private int width, x, y;
     private float value;
 
-    Health(int screenX, int screenY) {
+    public Health(int screenX, int screenY) {
         this.width = (int) (screenX * 0.6);
         this.x = (int) (screenX * 0.25);
         this.y = (int) (screenY * 0.55);

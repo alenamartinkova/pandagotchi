@@ -18,7 +18,7 @@ public class FoodGameActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        this.foodGameView = new FoodGameView(getApplicationContext(), display.widthPixels, display.heightPixels);
+        this.foodGameView = new FoodGameView(this, display.widthPixels, display.heightPixels);
         setContentView(this.foodGameView);
     }
 

@@ -11,7 +11,7 @@ public class Happiness implements Statistics {
     private int width, x, y;
     private float value;
 
-    Happiness(int screenX, int screenY) {
+    public Happiness(int screenX, int screenY) {
         this.width = (int) (screenX * 0.6);
         this.x = (int) (screenX * 0.25);
         this.y = (int) (screenY * 0.85);

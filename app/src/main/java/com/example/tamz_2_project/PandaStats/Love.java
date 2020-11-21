@@ -11,7 +11,7 @@ public class Love implements Statistics {
     private int width, x, y;
     private float value;
 
-    Love(int screenX, int screenY) {
+    public Love(int screenX, int screenY) {
         this.width = (int) (screenX * 0.6);
         this.x = (int) (screenX * 0.25);
         this.y = (int) (screenY * 0.65);

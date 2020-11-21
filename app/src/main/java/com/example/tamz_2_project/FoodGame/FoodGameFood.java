@@ -14,11 +14,11 @@ import static com.example.tamz_2_project.FoodGame.FoodGameView.health;
 public class FoodGameFood {
     int x, y, width, height;
     Bitmap food;
-    public static int foodSpeed = 20;
+    public int foodSpeed = 20;
     Random rand = new Random();
     boolean eaten = false;
 
-    public FoodGameFood(Resources res, int screenX) {
+    public FoodGameFood(Resources res, int screenX, int offset) {
         int tmp = this.rand.nextInt(4);
         if(tmp == 0) {
             this.food = BitmapFactory.decodeResource(res, R.drawable.watermelon);
@@ -38,7 +38,7 @@ public class FoodGameFood {
 
         this.food = Bitmap.createScaledBitmap(this.food, this.width, this.height, false);
 
-        this.y = 0;
+        this.y = 0 + offset;
         this.x = this.rand.nextInt(screenX - this.width);
     }
 

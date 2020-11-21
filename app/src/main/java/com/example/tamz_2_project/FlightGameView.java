@@ -19,8 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static com.example.tamz_2_project.MainActivity.screenRatioX;
-
 public class FlightGameView extends SurfaceView implements Runnable {
     private Thread thread;
     private boolean isPlaying, isGameOver = false;
@@ -117,8 +115,8 @@ public class FlightGameView extends SurfaceView implements Runnable {
     }
 
     private void update() {
-        this.firstBg.x -= 10 * screenRatioX;
-        this.secondBg.x -= 10 * screenRatioX;
+        this.firstBg.x -= 10;
+        this.secondBg.x -= 10;
 
         if(this.firstBg.x + this.firstBg.background.getWidth() < 0) {
             this.firstBg.x = this.screenX;
@@ -136,7 +134,7 @@ public class FlightGameView extends SurfaceView implements Runnable {
             if(b.x > screenX) {
                 toDelete.add(b);
             } else {
-                b.x += 50 * screenRatioX;
+                b.x += 50;
             }
 
             for (Enemy e : this.enemies) {
@@ -243,7 +241,7 @@ public class FlightGameView extends SurfaceView implements Runnable {
 
     public void createEnemies() {
         for(int i = 0; i < this.enemies.length; i++) {
-            this.enemies[i] = new Enemy(getResources());
+            this.enemies[i] = new Enemy(getResources(), this.screenY, this.screenX);
         }
     }
 }

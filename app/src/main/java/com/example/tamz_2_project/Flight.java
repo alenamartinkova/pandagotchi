@@ -5,9 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 
-import static com.example.tamz_2_project.MainActivity.screenRatioX;
-import static com.example.tamz_2_project.MainActivity.screenRatioY;
-
 public class Flight {
 
     public boolean isGoingUp = false;
@@ -25,14 +22,14 @@ public class Flight {
         this.width = this.flightOne.getWidth();
         this.height = this.flightOne.getHeight();
 
-        this.width = (int) ((this.width / 6) * screenRatioX);
-        this.height = (int) ((this.height / 6) * screenRatioY);
+        this.width = this.width / 7;
+        this.height = this.height / 6;
 
         this.flightOne = Bitmap.createScaledBitmap(this.flightOne, this.width, this.height, false);
         this.flightTwo = Bitmap.createScaledBitmap(this.flightTwo, this.width, this.height, false);
 
         this.y = screenY / 2;
-        this.x = (int) (64 * screenRatioX);
+        this.x = 64;
 
         // Shooting plane
         this.shootOne = BitmapFactory.decodeResource(res, R.drawable.shoot1);
@@ -86,17 +83,17 @@ public class Flight {
 
     public void update(int screenY) {
         if(this.isGoingUp) {
-            this.y -= 20 * screenRatioY;
+            this.y -= 20;
         } else {
-            this.y += 20 * screenRatioY;
+            this.y += 20;
         }
 
         if(this.y < 0) {
             this.y = 0;
         }
 
-        if(this.y > screenY - this.height) {
-            this.y = screenY - this.height;
+        if(this.y > screenY - 100) {
+            this.y = screenY - 100;
         }
     }
 

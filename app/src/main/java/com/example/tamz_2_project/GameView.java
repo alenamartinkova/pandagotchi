@@ -11,7 +11,6 @@ public class GameView extends SurfaceView implements Runnable {
     private Thread thread;
     private boolean isPlaying;
     private int screenX, screenY;
-    private float screenRatioX, screenRatioY;
     private Paint paint;
     private Pandagotchi pandagotchi;
 
@@ -20,9 +19,6 @@ public class GameView extends SurfaceView implements Runnable {
 
         this.screenX = screenX;
         this.screenY = screenY;
-
-        this.screenRatioX = 1920f / screenX;
-        this.screenRatioY = 1920f / screenY;
 
         this.pandagotchi = new Pandagotchi(getResources(), this.screenX, this.screenY);
         this.pandagotchi.x = this.screenX / 2 - 180;

@@ -7,28 +7,27 @@ import android.graphics.Rect;
 
 import java.util.Random;
 
-import static com.example.tamz_2_project.MainActivity.screenRatioX;
-import static com.example.tamz_2_project.MainActivity.screenRatioY;
-
 public class Enemy {
-    int x = 0, y, width, height, enemyCounter = 1, speed = 20;
+    int x, y, width, height, enemyCounter = 1, speed = 15;
     Bitmap enemyOne, enemyTwo;
     boolean wasShot = true;
+    Random rand = new Random();
 
-    Enemy(Resources res) {
+    Enemy(Resources res, int screenY, int screenX) {
         this.enemyOne = BitmapFactory.decodeResource(res, R.drawable.enemy1);
         this.enemyTwo = BitmapFactory.decodeResource(res, R.drawable.enemy2);
 
         this.width = this.enemyOne.getWidth();
         this.height = this.enemyOne.getHeight();
 
-        this.width = (int) ((this.width / 10) * screenRatioX);
-        this.height = (int) ((this.height / 10) * screenRatioY);
+        this.width = this.width / 14;
+        this.height = this.height / 13;
 
         this.enemyOne = Bitmap.createScaledBitmap(this.enemyOne, this.width, this.height, false);
         this.enemyTwo = Bitmap.createScaledBitmap(this.enemyTwo, this.width, this.height, false);
 
-        this.y = -this.height;
+        this.x = screenX - 100;
+        this.y = this.rand.nextInt(screenY - 200);
     }
 
     Bitmap getEnemy() {
@@ -49,7 +48,6 @@ public class Enemy {
                 return true;
             }
 
-            this.speed++;
             this.x = screenX;
             this.y = random.nextInt(screenY - this.height);
             this.wasShot = false;

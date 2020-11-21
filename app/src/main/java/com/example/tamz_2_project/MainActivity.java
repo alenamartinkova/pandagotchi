@@ -17,7 +17,6 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    public static float screenRatioX, screenRatioY;
     GameView gameView;
     Intent myIntent;
 
@@ -29,9 +28,6 @@ public class MainActivity extends AppCompatActivity {
         DisplayMetrics display = Resources.getSystem().getDisplayMetrics();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        this.screenRatioX = 1920f /  display.widthPixels;
-        this.screenRatioY = 1920f / display.heightPixels;
 
         this.gameView = new GameView(this, display.widthPixels, display.heightPixels);
         setContentView(this.gameView);

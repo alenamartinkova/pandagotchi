@@ -92,8 +92,8 @@ public class Flight {
             this.y = 0;
         }
 
-        if(this.y > screenY - 100) {
-            this.y = screenY - 100;
+        if(this.y + this.height + this.height >= screenY) {
+            this.y = screenY - this.height - this.height;
         }
     }
 

@@ -10,7 +10,7 @@ import java.util.Random;
 public class Enemy {
     int x, y, width, height, enemyCounter = 1, speed = 15;
     Bitmap enemyOne, enemyTwo;
-    boolean wasShot = true;
+    boolean wasShot = false;
     Random rand = new Random();
 
     Enemy(Resources res, int screenY, int screenX) {

@@ -4,5 +4,5 @@
     <item android:title="Reset"
         android:id="@+id/reset"/>
     <item android:title="Menu"
-        android:id="@+id/levels"/>
+        android:id="@+id/back"/>
 </menu>

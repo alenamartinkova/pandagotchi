@@ -2,7 +2,9 @@ package com.example.tamz_2_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Point;
 import android.os.Bundle;
@@ -20,6 +22,11 @@ public class MainActivity extends AppCompatActivity {
     GameView gameView;
     Intent myIntent;
 
+    public static float funStorage;
+    public static float healthStorage;
+    public static float loveStorage;
+    public static float happinessStorage ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +35,12 @@ public class MainActivity extends AppCompatActivity {
         DisplayMetrics display = Resources.getSystem().getDisplayMetrics();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        SharedPreferences sharedPref = getSharedPreferences("Stats", Context.MODE_PRIVATE);
+        funStorage = sharedPref.getFloat("fun", 100);
+        healthStorage = sharedPref.getFloat("health", 100);
+        loveStorage = sharedPref.getFloat("love", 100);
+        happinessStorage = sharedPref.getFloat("happiness", 100);
 
         this.gameView = new GameView(this, display.widthPixels, display.heightPixels);
         setContentView(this.gameView);
@@ -38,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
         try {
             this.gameView.pause();
+            storeSharedPref();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -66,5 +80,16 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void storeSharedPref() {
+        Log.d("health", "" + healthStorage);
+        SharedPreferences sharedPref = getSharedPreferences("Stats", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putFloat("health", healthStorage);
+        editor.putFloat("fun", funStorage);
+        editor.putFloat("love", loveStorage);
+        editor.putFloat("happiness", happinessStorage);
+        editor.apply();
     }
 }

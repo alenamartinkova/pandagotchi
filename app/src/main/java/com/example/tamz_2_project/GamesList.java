@@ -20,11 +20,6 @@ public class GamesList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_games_list);
-        /*
-        TextView highscore = findViewById(R.id.highScore);
-        SharedPreferences prefs = getSharedPreferences("game", MODE_PRIVATE);
-        highscore.setText("Highscore: " + prefs.getInt("highscore", 0));
-         */
     }
 
     @Override

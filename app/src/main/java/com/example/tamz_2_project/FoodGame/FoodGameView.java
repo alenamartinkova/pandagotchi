@@ -5,10 +5,11 @@ import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceView;
 
-import com.example.tamz_2_project.FlightGame.FlightGameActivity;
+import static com.example.tamz_2_project.FoodGame.FoodGameFood.foodSpeed;
 import com.example.tamz_2_project.GamesList;
 
 public class FoodGameView extends SurfaceView implements Runnable {
@@ -52,6 +53,7 @@ public class FoodGameView extends SurfaceView implements Runnable {
         this.foodSecond = new FoodGameFood(getResources(), this.screenX, 200);
         this.badFood = new FoodGameBadFood(getResources(), this.screenX);
         this.healthStat = new Health(this.screenX);
+        health = 5;
     }
 
     @Override
@@ -94,14 +96,18 @@ public class FoodGameView extends SurfaceView implements Runnable {
 
         // if not create new good food
         if(this.food.eaten) {
-            this.food.foodSpeed++;
+           foodSpeed++;
             this.food = new FoodGameFood(getResources(), this.screenX, 0);
         }
 
         // if not create new good food
         if(this.foodSecond.eaten) {
-            this.foodSecond.foodSpeed++;
+            foodSpeed++;
             this.foodSecond = new FoodGameFood(getResources(), this.screenX, 0);
+        }
+
+        if(this.isGameOver && health == 0) {
+            return;
         }
     }
 
@@ -115,7 +121,7 @@ public class FoodGameView extends SurfaceView implements Runnable {
             this.canvas.drawBitmap(this.badFood.food, this.badFood.x, this.badFood.y, this.paint);
             this.healthStat.draw(this.canvas);
 
-            if(this.isGameOver) {
+            if(this.isGameOver && health == 0) {
                 this.isPlaying = false;
                 waitBeforeExit();
                 getHolder().unlockCanvasAndPost(this.canvas);
@@ -176,7 +182,7 @@ public class FoodGameView extends SurfaceView implements Runnable {
         if(this.isGameOver && health == 0) {
             return;
         } else if (this.isGameOver && health > 0) {
-            this.food.foodSpeed += 5;
+            foodSpeed += 5;
             this.food = new FoodGameFood(getResources(), this.screenX, 0);
         }
 
@@ -187,7 +193,6 @@ public class FoodGameView extends SurfaceView implements Runnable {
         if(this.isGameOver && health == 0) {
             return;
         } else if (this.isGameOver && health > 0) {
-            this.foodSecond.foodSpeed += 5;
             this.foodSecond = new FoodGameFood(getResources(), this.screenX, 0);
         }
     }

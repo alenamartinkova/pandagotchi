@@ -4,18 +4,17 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
-import com.example.tamz_2_project.PandaStats.Statistics;
-import com.example.tamz_2_project.Pandagotchi;
+import com.example.tamz_2_project.MainActivity;
 
 public class Fun implements Statistics {
     private int width, x, y;
-    private float value;
+    public float value;
 
     public Fun(int screenX, int screenY) {
         this.width = (int) (screenX * 0.6);
         this.x = (int) (screenX * 0.25);
         this.y = (int) (screenY * 0.75);
-        this.value = Pandagotchi.MAX_FUN;
+        this.value = MainActivity.funStorage;
     }
 
     @Override
@@ -45,7 +44,9 @@ public class Fun implements Statistics {
         if(this.value == 0) {
             this.value = 0;
         } else {
-            this.value -= 0.1;
+            this.value -= 0.5;
         }
+
+        MainActivity.funStorage = this.value;
     }
 }

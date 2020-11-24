@@ -6,17 +6,14 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.tamz_2_project.PandaStats.Fun;
 import com.example.tamz_2_project.PandaStats.Happiness;
 import com.example.tamz_2_project.PandaStats.Health;
 import com.example.tamz_2_project.PandaStats.Love;
 
-public class Pandagotchi {
-    public static float MAX_HEALTH = 100;
-    public static float MAX_FUN = 100;
-    public static float MAX_HAPPINESS = 100;
-    public static float MAX_LOVE = 100;
-    
+public class Pandagotchi extends AppCompatActivity {
     public int x, y;
     private Health health;
     private Happiness happiness;

@@ -263,7 +263,7 @@ public class PandaBanView extends View {
         if(!contains(level, 2)){
             Toast.makeText(getContext(), "GOOD JOB", Toast.LENGTH_LONG).show();
             levelName = (char) (levelName + 1);
-            myIntent = new Intent(getContext(), MainActivity.class);
+            myIntent = new Intent(getContext(), PandaBanActivity.class);
             myIntent.putExtra("level", levelName);
             getContext().startActivity(myIntent);
         }

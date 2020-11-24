@@ -4,18 +4,17 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
-import com.example.tamz_2_project.PandaStats.Statistics;
-import com.example.tamz_2_project.Pandagotchi;
+import com.example.tamz_2_project.MainActivity;
 
 public class Love implements Statistics {
     private int width, x, y;
-    private float value;
+    public float value;
 
     public Love(int screenX, int screenY) {
         this.width = (int) (screenX * 0.6);
         this.x = (int) (screenX * 0.25);
         this.y = (int) (screenY * 0.65);
-        this.value = Pandagotchi.MAX_LOVE;
+        this.value = MainActivity.loveStorage;
     }
 
     @Override
@@ -45,7 +44,9 @@ public class Love implements Statistics {
         if(this.value == 0) {
             this.value = 0;
         } else {
-            this.value -= 0.1;
+            this.value -= 0.5;
         }
+
+        MainActivity.loveStorage = this.value;
     }
 }

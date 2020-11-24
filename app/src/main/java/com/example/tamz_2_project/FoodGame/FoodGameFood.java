@@ -14,7 +14,7 @@ import static com.example.tamz_2_project.FoodGame.FoodGameView.health;
 public class FoodGameFood {
     int x, y, width, height;
     Bitmap food;
-    public int foodSpeed = 20;
+    public static int foodSpeed = 20;
     Random rand = new Random();
     boolean eaten = false;
 

@@ -122,7 +122,7 @@ public class PandaBanActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.my_menu_panda_ban, menu);
+        inflater.inflate(R.menu.my_menu_in_game, menu);
         return true;
     }
 
@@ -134,7 +134,7 @@ public class PandaBanActivity extends AppCompatActivity {
                 myIntent.putExtra("level", level);
                 startActivity(myIntent);
                 return true;
-            case R.id.levels:
+            case R.id.back:
                 myIntent = new Intent(this, GamesList.class);
                 startActivity(myIntent);
                 return true;

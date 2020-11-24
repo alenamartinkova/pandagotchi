@@ -175,7 +175,6 @@ public class FlightGameView extends SurfaceView implements Runnable {
 
             if(this.isGameOver) {
                 this.isPlaying = false;
-                saveIfHighScore();
                 waitBeforeExit();
                 this.canvas.drawBitmap(this.flight.getDead(), this.flight.x, this.flight.y, this.paint);
                 getHolder().unlockCanvasAndPost(this.canvas);
@@ -196,15 +195,6 @@ public class FlightGameView extends SurfaceView implements Runnable {
         Thread.sleep(3000);
         this.activity.startActivity(new Intent(this.activity, GamesList.class));
         this.activity.finish();
-    }
-
-    // Not used so far
-    private void saveIfHighScore() {
-        if(this.prefs.getInt("highscore", 0) < this.score) {
-            SharedPreferences.Editor editor = this.prefs.edit();
-            editor.putInt("highscore", this.score);
-            editor.apply();
-        }
     }
 
     private void sleep() {

@@ -11,6 +11,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.tamz_2_project.GamesList;
 import com.example.tamz_2_project.MainActivity;
 import com.example.tamz_2_project.R;
 
@@ -265,6 +266,13 @@ public class PandaBanView extends View {
             levelName = (char) (levelName + 1);
             myIntent = new Intent(getContext(), PandaBanActivity.class);
             myIntent.putExtra("level", levelName);
+            MainActivity.loveStorage += 15;
+
+            if(MainActivity.loveStorage >= 100) {
+                MainActivity.loveStorage = 100;
+            }
+
+            myIntent.putExtra("storeLove", true);
             getContext().startActivity(myIntent);
         }
 

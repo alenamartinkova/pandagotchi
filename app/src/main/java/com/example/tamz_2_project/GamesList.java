@@ -2,8 +2,11 @@ package com.example.tamz_2_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -15,11 +18,44 @@ import com.example.tamz_2_project.PandaBan.PandaBanActivity;
 
 public class GamesList extends AppCompatActivity {
     Intent myIntent;
+    Boolean storeHealth = false;
+    Boolean storeHappiness = false;
+    Boolean storeLove = false;
+    Boolean storeFun = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_games_list);
+
+        myIntent = getIntent();
+        storeHealth = myIntent.getBooleanExtra("storeHealth", false);
+        storeHappiness = myIntent.getBooleanExtra("storeHappiness", false);
+        storeFun = myIntent.getBooleanExtra("storeFun", false);
+        storeLove = myIntent.getBooleanExtra("storeLove", false);
+
+        SharedPreferences sharedPref = getSharedPreferences("Stats", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+
+        if(storeHealth) {
+            editor.putFloat("health", MainActivity.healthStorage);
+            editor.apply();
+        }
+
+        if(storeHappiness) {
+            editor.putFloat("happiness", MainActivity.happinessStorage);
+            editor.apply();
+        }
+
+        if(storeLove) {
+            editor.putFloat("love", MainActivity.loveStorage);
+            editor.apply();
+        }
+
+        if(storeFun) {
+            editor.putFloat("fun", MainActivity.funStorage);
+            editor.apply();
+        }
     }
 
     @Override

@@ -11,6 +11,8 @@ import android.view.SurfaceView;
 
 import static com.example.tamz_2_project.FoodGame.FoodGameFood.foodSpeed;
 import com.example.tamz_2_project.GamesList;
+import com.example.tamz_2_project.MainActivity;
+import com.example.tamz_2_project.PandaBan.PandaBanActivity;
 
 public class FoodGameView extends SurfaceView implements Runnable {
     private boolean isPlaying;
@@ -199,7 +201,21 @@ public class FoodGameView extends SurfaceView implements Runnable {
 
     private void waitBeforeExit() throws InterruptedException {
         Thread.sleep(3000);
-        this.activity.startActivity(new Intent(this.activity, GamesList.class));
+        MainActivity.healthStorage += 15;
+        MainActivity.happinessStorage += 15;
+
+        if(MainActivity.healthStorage >= 100) {
+            MainActivity.healthStorage = 100;
+        }
+
+        if(MainActivity.happinessStorage >= 100) {
+            MainActivity.happinessStorage = 100;
+        }
+
+        Intent myIntent = new Intent(getContext(), GamesList.class);
+        myIntent.putExtra("storeHealth", true);
+        myIntent.putExtra("storeHappiness", true);
+        this.activity.startActivity(myIntent);
         this.activity.finish();
     }
 

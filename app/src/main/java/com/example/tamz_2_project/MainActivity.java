@@ -60,6 +60,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        SharedPreferences sharedPref = getSharedPreferences("Stats", Context.MODE_PRIVATE);
+        funStorage = sharedPref.getFloat("fun", 100);
+        healthStorage = sharedPref.getFloat("health", 100);
+        loveStorage = sharedPref.getFloat("love", 100);
+        happinessStorage = sharedPref.getFloat("happiness", 100);
+
         this.gameView.resume();
     }
 

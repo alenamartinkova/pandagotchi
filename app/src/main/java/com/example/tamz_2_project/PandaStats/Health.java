@@ -8,13 +8,11 @@ import com.example.tamz_2_project.MainActivity;
 
 public class Health implements Statistics {
     private int width, x, y;
-    public float value;
 
     public Health(int screenX, int screenY) {
         this.width = (int) (screenX * 0.6);
         this.x = (int) (screenX * 0.25);
         this.y = (int) (screenY * 0.55);
-        this.value = MainActivity.healthStorage;
     }
 
     @Override
@@ -29,7 +27,7 @@ public class Health implements Statistics {
         canvas.drawRect(this.x, this.y - this.height, this.x + this.width, this.y, paint);
 
         // Health
-        float healthWidth =((this.width - 2 * this.margin) * (this.value / 100));
+        float healthWidth =((this.width - 2 * this.margin) * (MainActivity.healthStorage / 100));
         int healthHeight = this.height - 2 * this.margin;
         int healthLeft = this.x + this.margin;
         float healthRight = healthLeft + healthWidth;
@@ -42,12 +40,10 @@ public class Health implements Statistics {
 
     @Override
     public void update() {
-        if(this.value == 0) {
-            this.value = 0;
+        if(MainActivity.healthStorage == 0) {
+            MainActivity.healthStorage = 0;
         } else {
-            this.value -= 0.5;
+            MainActivity.healthStorage -= 0.5;
         }
-
-        MainActivity.healthStorage = this.value;
     }
 }

@@ -8,13 +8,11 @@ import com.example.tamz_2_project.MainActivity;
 
 public class Happiness implements Statistics {
     private int width, x, y;
-    public float value;
 
     public Happiness(int screenX, int screenY) {
         this.width = (int) (screenX * 0.6);
         this.x = (int) (screenX * 0.25);
         this.y = (int) (screenY * 0.85);
-        this.value = MainActivity.happinessStorage;
     }
 
     @Override
@@ -28,7 +26,7 @@ public class Happiness implements Statistics {
         canvas.drawRect(this.x, this.y - this.height, this.x + this.width, this.y, paint);
 
         // Health
-        float healthWidth =((this.width - 2 * this.margin) * (this.value / 100));
+        float healthWidth =((this.width - 2 * this.margin) * (MainActivity.happinessStorage / 100));
         int healthHeight = this.height - 2 * this.margin;
         int healthLeft = this.x + this.margin;
         float healthRight = healthLeft + healthWidth;
@@ -41,11 +39,10 @@ public class Happiness implements Statistics {
 
     @Override
     public void update() {
-        if(this.value == 0) {
-            this.value = 0;
+        if(MainActivity.happinessStorage == 0) {
+            MainActivity.happinessStorage = 0;
         } else {
-            this.value -= 0.5;
+            MainActivity.happinessStorage -= 0.5;
         }
-        MainActivity.happinessStorage = this.value;
     }
 }

@@ -16,6 +16,7 @@ import android.view.MotionEvent;
 import android.view.SurfaceView;
 
 import com.example.tamz_2_project.GamesList;
+import com.example.tamz_2_project.MainActivity;
 import com.example.tamz_2_project.R;
 
 import java.util.ArrayList;
@@ -193,7 +194,21 @@ public class FlightGameView extends SurfaceView implements Runnable {
 
     private void waitBeforeExit() throws InterruptedException {
         Thread.sleep(3000);
-        this.activity.startActivity(new Intent(this.activity, GamesList.class));
+        MainActivity.funStorage += 15;
+        MainActivity.loveStorage += 15;
+
+        if(MainActivity.loveStorage >= 100) {
+            MainActivity.loveStorage = 100;
+        }
+
+        if(MainActivity.funStorage >= 100) {
+            MainActivity.funStorage = 100;
+        }
+
+        Intent myIntent = new Intent(getContext(), GamesList.class);
+        myIntent.putExtra("storeFun", true);
+        myIntent.putExtra("storeLove", true);
+        this.activity.startActivity(myIntent);
         this.activity.finish();
     }
 

@@ -2,7 +2,9 @@ package com.example.tamz_2_project.PandaBan;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.example.tamz_2_project.GamesList;
+import com.example.tamz_2_project.MainActivity;
 import com.example.tamz_2_project.R;
 
 import java.io.IOException;
@@ -28,6 +31,7 @@ public class PandaBanActivity extends AppCompatActivity {
     InputStream input;
     AssetManager assetManager;
     Intent myIntent;
+    Boolean storeLove = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,15 @@ public class PandaBanActivity extends AppCompatActivity {
 
         myIntent = getIntent();
         level = myIntent.getCharExtra("level", '1');
+
+        storeLove = myIntent.getBooleanExtra("storeLove", false);
+
+        if(storeLove) {
+            SharedPreferences sharedPref = getSharedPreferences("Stats", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putFloat("love", MainActivity.loveStorage);
+            editor.apply();
+        }
 
         try {
             input = assetManager.open("levels.txt");

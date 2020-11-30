@@ -30,7 +30,7 @@ public class Enemy {
         this.enemyTwo = Bitmap.createScaledBitmap(this.enemyTwo, this.width, this.height, false);
 
         this.x = screenX - 100;
-        this.y = this.rand.nextInt(screenY - 200);
+        this.y = this.rand.nextInt(screenY - 250);
     }
 
     Bitmap getEnemy() {

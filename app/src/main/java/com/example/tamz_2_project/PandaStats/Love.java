@@ -42,7 +42,7 @@ public class Love implements Statistics {
         if(MainActivity.loveStorage == 0) {
             MainActivity.loveStorage = 0;
         } else {
-            MainActivity.loveStorage -= 0.5;
+            MainActivity.loveStorage -= 0.1;
         }
     }
 }

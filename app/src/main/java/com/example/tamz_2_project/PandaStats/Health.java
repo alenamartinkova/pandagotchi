@@ -43,7 +43,7 @@ public class Health implements Statistics {
         if(MainActivity.healthStorage == 0) {
             MainActivity.healthStorage = 0;
         } else {
-            MainActivity.healthStorage -= 0.5;
+            MainActivity.healthStorage -= 0.1;
         }
     }
 }

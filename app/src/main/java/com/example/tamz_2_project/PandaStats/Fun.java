@@ -42,7 +42,7 @@ public class Fun implements Statistics {
         if(MainActivity.funStorage == 0) {
             MainActivity.funStorage = 0;
         } else {
-            MainActivity.funStorage -= 0.5;
+            MainActivity.funStorage -= 0.1;
         }
     }
 }

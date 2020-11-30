@@ -42,7 +42,7 @@ public class Happiness implements Statistics {
         if(MainActivity.happinessStorage == 0) {
             MainActivity.happinessStorage = 0;
         } else {
-            MainActivity.happinessStorage -= 0.5;
+            MainActivity.happinessStorage -= 0.1;
         }
     }
 }

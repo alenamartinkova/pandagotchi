@@ -266,7 +266,7 @@ public class PandaBanView extends View {
             levelName = (char) (levelName + 1);
             myIntent = new Intent(getContext(), PandaBanActivity.class);
             myIntent.putExtra("level", levelName);
-            MainActivity.loveStorage += 15;
+            MainActivity.loveStorage += 10;
 
             if(MainActivity.loveStorage >= 100) {
                 MainActivity.loveStorage = 100;

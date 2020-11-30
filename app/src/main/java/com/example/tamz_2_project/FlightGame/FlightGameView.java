@@ -194,8 +194,8 @@ public class FlightGameView extends SurfaceView implements Runnable {
 
     private void waitBeforeExit() throws InterruptedException {
         Thread.sleep(3000);
-        MainActivity.funStorage += 15;
-        MainActivity.loveStorage += 15;
+        MainActivity.funStorage += 10;
+        MainActivity.loveStorage += 10;
 
         if(MainActivity.loveStorage >= 100) {
             MainActivity.loveStorage = 100;

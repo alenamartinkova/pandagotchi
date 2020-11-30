@@ -201,8 +201,8 @@ public class FoodGameView extends SurfaceView implements Runnable {
 
     private void waitBeforeExit() throws InterruptedException {
         Thread.sleep(3000);
-        MainActivity.healthStorage += 15;
-        MainActivity.happinessStorage += 15;
+        MainActivity.healthStorage += 10;
+        MainActivity.happinessStorage += 10;
 
         if(MainActivity.healthStorage >= 100) {
             MainActivity.healthStorage = 100;
